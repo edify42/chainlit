@@ -493,8 +493,8 @@ async def oauth_callback(
             detail="Unauthorized",
         )
 
-    url = get_user_facing_url(request.url)
-    token = await provider.get_token(code, url)
+    # url = get_user_facing_url(request.url)
+    token = await provider.get_token(code, request.url)
 
     (raw_user_data, default_user) = await provider.get_user_info(token)
 
